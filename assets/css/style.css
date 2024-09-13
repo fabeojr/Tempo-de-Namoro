@@ -1,0 +1,466 @@
+body {
+   font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1C1C1C;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Media Query para Tablets e Dispositivos Móveis */
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        padding: 10px;
+    }
+    body {
+        font-size: 14px;
+    }
+    .main-container {
+        flex-direction: column; /* Alinha as caixas em coluna */
+    }
+
+    .header, .footer {
+        text-align: center;
+    }
+
+
+    .box {
+        flex: 1 1 50%; /* Cada caixa ocupa 90% da largura */
+        margin-bottom: 10px; /* Espaçamento entre as caixas em coluna */
+    }
+}
+
+@media (max-width: 480px) {
+    .header, .footer {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .main-container {
+        padding: 28px;
+        padding-left: 28px;
+    }
+
+    .box {
+        font-size: 14px; /* Ajusta o tamanho do texto */
+    }
+}
+
+/* Container Principal */
+.main-container {
+    display: flex;
+    gap: 10px;  /* Espaçamento entre as caixas   */
+    align-items: center; /* Garante alinhamento ao topo */
+    padding: 0 auto;
+    max-width: 1400px;
+    max-height: 800px;
+    margin: 0 auto;
+   
+}
+
+
+.container {
+    background: #363636;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    flex-wrap: wrap;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    color: #fff;
+    text-align: center;
+    
+}
+
+#countdown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#days-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#days {
+    padding: 20px; /* Aumente o tamanho da caixa de dias */
+    color: #fff;
+    border-radius: 5px;
+    font-size: 4rem; /* Aumente o tamanho da fonte para destaque */
+    transition: transform 0.3s ease, background 0.5s ease-in-out;
+    background: linear-gradient(135deg, #5c83d3, #4056b7, #4639a9,  #672b9c); /* Gradiente em tom azul-roxo*//* Inicialmente sem brilho */
+    transition: background 0.8s, transform 0.3s ease; /* Transições suaves */
+}
+
+/* Animação de projeção e brilho ao passar o mouse */
+#days:hover {
+    transform: scale(1.18); /* Projeção para frente, leve "salto" */
+    background: linear-gradient(45deg, #ff9a9e, #eebaab, #b58ccc, #87aae8); /* Gradiente de cores */
+    box-shadow: 0 0 15px rgba(198, 105, 255, 0.5), 0 0 25px rgba(133, 105, 255, 0.3); /* Brilho sutil */
+}
+
+#days-container span {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    background: #363636;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+#time-units {
+    display: flex;
+    gap: 20px;
+}
+
+.time-box {
+    /* Caixa com os contadores horas, minutos e segundos*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background: #363636;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.time-box div {
+    font-size: 2rem; /* Ajuste o tamanho da fonte para as outras caixas */
+}
+
+.time-box span {
+    /*caixa para os identificadores de horas, minutos e segundos*/
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #fff;
+    background: #363636;
+    padding: 5px;
+    border-radius: 3px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Estilos para cada número (horas, minutos, segundos) */
+#hours {
+    font-size: 2rem;
+    color: rgb(255, 44, 44); /* Cor vermelha para horas */
+    text-shadow: 0 0 7px rgba(255, 44, 44, 0.7); /* Efeito de brilho vermelho */
+    font-weight: bold;
+}
+
+#minutes {
+    font-size: 2rem;
+    color: yellow; /* Cor amarela para minutos */
+    text-shadow: 0 0 7px rgba(255, 255, 0, 0.7); /* Efeito de brilho amarelo */
+    font-weight: bold;
+}
+
+#seconds {
+    font-size: 2rem;
+    color: #25d366; /* Cor verde para segundos */
+    text-shadow: 0 0 7px rgba(26, 227, 56, 0.7); /* Efeito de brilho verde */
+    font-weight: bold;
+}
+
+
+/* Animação de salto para horas, minutos e segundos */
+#hours:hover, #minutes:hover, #seconds:hover {
+    transform: scale(1.25); /* Aumento de tamanho mais sutil (10% maior) */
+}
+
+/* Adiciona o efeito de transição suave em todos */
+#days, #hours, #minutes, #seconds {
+    transition: transform 0.3s ease, background 0.5s ease-in-out, color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+/* Estilos da nova caixa de texto */
+.text-container {
+    flex-grow: 1; /* Permitir que a segunda caixa se ajuste ao conteúdo */
+    margin-left: 20px;
+    padding: 20px;
+    background-color: #363636;
+    border-radius: 10px;
+    text-align: center;
+    width: auto; /* Permite que a segunda caixa tenha uma largura dinâmica */
+    display: flex;
+    flex-direction: column; /* Alinha os itens em coluna */
+    align-items: center; /* Centraliza horizontalmente o conteúdo */
+}
+
+p {
+    font-size: 16px;
+    color:#fff;
+    line-height: 1.8; /* Ajusta o espaçamento entre as linhas */
+    margin: 0; /* Remove qualquer margem */
+    padding: 0; /* Remove qualquer padding */
+}
+
+/* Estilo do carrossel */
+.carousel-container {
+    position: relative;
+    width: 100%; /* ocupa a largura total da caixa */
+    max-width: 380px; /* Limita a largura do carrossel */
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 0 40px; /* Adiciona espaço para as setas não sobrepor a imagem */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.carousel-item:hover {
+    transform: scale(1.1) translateZ(0); /* Salta suavemente e aumenta o tamanho */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adiciona uma sombra para aumentar o efeito de profundidade */
+}
+
+/* Botões de navegação do carrossel */
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1;
+    border-radius: 50%;
+    width: 40px;
+}
+
+.carousel img {
+    max-width: 100%; /* Para imagens responsivas dentro da segunda caixa */
+    height: auto;
+}
+
+.text-container {
+    flex-grow: 1; /* Permitir que a segunda caixa se ajuste ao conteúdo */
+    margin: 10px;
+}
+
+.prev {
+    left: 1px;
+}
+
+.next {
+    right: 1px;
+}
+
+
+
+
+/* Estilo da caixa do chat */
+#chatbox {
+    border: 2px solid #363636;
+    padding: 10px;
+    margin-top: 7px;
+    background-color: #363636;
+    border-radius: 10px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; /* Para ajustar a animação "escrevendo" */
+}
+
+
+#chat {
+    width: 100%; /* Ajusta a caixa de chat para ocupar a largura total */
+    max-width: 100%; /* Garante que ela não ultrapasse a largura da janela */
+    height: 330px; /* Altura fixa da caixa de chat */
+    overflow-y: auto; /* Permite a rolagem se as mensagens ultrapassarem a altura */
+    padding: 10px;
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+    background-size: contain;
+    background-color: #282727;
+    position: relative; /* Garante que os elementos dentro da caixa não saiam dela */
+}
+
+/* Estilo das mensagens no chat */
+.message {
+    margin: 10px 0; /* Margem entre as mensagens */
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.4;
+
+    display: inline-block;
+    word-wrap: break-word;
+    flex-direction: column;
+    word-wrap: break-word;
+    display: inline-block;
+}
+
+.received {
+    background-color:  #313232;
+    align-self: flex-start;
+}
+
+.sent {
+    background-color:  #363636;
+    align-self: flex-end;
+}
+
+.text {
+    font-size: 15px;
+    color: #333;
+    text-align:start;
+}
+
+.time {
+    font-size: 12px;
+    color: #d1d0d0;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* Estilo das opções de resposta */
+.chat-options {
+    display: flex;
+    justify-content:flex-start; /* Centraliza os botões dentro do container */
+    margin-top: 10px;
+    gap: 5px; /* Espaçamento entre os botões */
+}
+
+.chat-option {
+    background-color: #23c05c;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.chat-option:hover {
+    background-color: #20b857;
+    transform: scale(1.03); /* Projeção para frente, leve "salto" */
+}
+
+/* Animação "escrevendo" */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    font-size: 15px;
+    color: #919191;
+    position: absolute;
+    bottom: 10px; /* Ajustar a posição dentro do chatbox */
+    left: 10px;
+}
+
+.typing-indicator span {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin: 0 2px;
+    background-color: #666;
+    border-radius: 50%;
+    opacity: 0;
+    animation: typing 1.5s infinite;
+}
+
+.typing-indicator span:nth-child(1) {
+    animation-delay: 0s;
+}
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Estilo para as mensagens recebidas (mensagens do site) */
+.message.received {
+    display: flex;
+    justify-content: flex-start; /* Alinha à esquerda */
+    text-align: left;
+    margin-right: auto; /* Garante que fique à esquerda */
+    background-color: #363636; /* Cor de fundo da mensagem do site */ 
+    
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%; /* Limita a largura da mensagem */
+    word-wrap: break-word; /* Garante a quebra de linha nas mensagens longas */
+}
+
+/* Estilo para as mensagens enviadas (mensagens do usuário) */
+.message.sent {
+    display: flex;
+    justify-content: flex-end; /* Alinha à direita */
+    text-align: right;
+    margin-left: auto; /* Garante que fique à direita */
+    background-color:#056c2c; /* Cor de fundo da mensagem do usuário */
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 60%; /* Limita a largura da mensagem */
+    word-wrap: break-word; /* Garante a quebra de linha nas mensagens longas */
+    overflow-wrap: break-word; /* Impede o estouro da caixa */
+}
+
+
+#reset-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top:auto;
+}
+
+#reset-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.03); /* Projeção para frente, leve "salto" */
+}
+
+/* Centraliza o botão de dar uma nova chance */
+#reset-button-container {
+    display: flex;
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    margin-top: 10px; /* Espaçamento acima do botão */
+}

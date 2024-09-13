@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso tempo juntos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" style="border-radius: 20px;" href="assets/img/iconsite.jpg" type="Imagem">
+</head>
+<body>
+    <div class="main-container">
+        <div class="container">
+            <h1>Juntos a</h1>
+            <div id="countdown">
+                <div id="days-container">
+                    <div id="days">00</div>
+                    <span>Dias</span>
+                </div>
+                <div id="time-units">      
+                    <div class="time-box">
+                        <div id="hours">00</div>
+                        <span>Horas</span>
+                    </div>
+                    <div class="time-box">
+                        <div id="minutes">00</div>
+                        <span>Minutos</span>
+                    </div>
+                    <div class="time-box">
+                        <div id="seconds">00</div>
+                        <span>Segundos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nova Caixa à Direita -->
+        <div class="container text-container">
+            <h1>Nosso Relacionamento</h1>
+            <p id="days-relationship">
+                Já se passaram <span id="days-passed">00</span> dias (<span id="months-passed">0</span> meses) desde que começamos a namorar.
+            </p>
+            <p id="total-time">
+                Mas pertencemos um ao outro há <span id="total-days">00</span> dias (<span id="total-months">0</span> meses).
+            </p>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <img src="assets/img/Imagem 1.jpg" alt="Imagem 1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/Imagem 2.jpg" alt="Imagem 2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="assets/img/Imagem 3.jpg" alt="Imagem 3">
+                    </div>
+                </div>
+                <!-- Botões para navegação no carrossel -->
+                <button class="carousel-button prev" onclick="moveCarousel(-1)">&#10094;</button>
+                <button class="carousel-button next" onclick="moveCarousel(1)">&#10095;</button>
+            </div>
+        </div>  
+
+        <div id="chatbox" class="box">
+            <div id="chat" class="chat-messages">
+                    <!-- Primeira mensagem ao abrir o site -->
+                    <div class="message received">
+                        <span class="text" style="color: #d1d0d0">Posso te contar um segredo, amor?</span>
+                        <span class="time">18:11</span>
+                    </div>
+            </div>
+        
+            <!-- Opções de resposta do usuário -->
+            <div id="chat-options" class="chat-options">
+                <button style="color: #fff" onclick="sendResponse('1')" class="chat-option">Pode, sim, meu amor.</button>
+                <button style="color: #fff" onclick="sendResponse('2')" class="chat-option">Não, lixorrr.</button>
+            </div>
+
+            <!-- Botão de "Dar uma nova chance" -->
+            <div id="reset-button-container">
+                <button id="reset-button" style="display: none;">Dar uma nova chance</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
